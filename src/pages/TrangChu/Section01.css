@@ -1,0 +1,64 @@
+.container {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+}
+
+.custom-card {
+  width: 100%;
+  max-width: 600px;
+  padding: 20px;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+h6 {
+  color: var(--gray-gray-600, #4D4D4D);
+  text-align: center;
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+h2 {
+  color: var(--blue-primary-600, #003F7D);
+/* leading-trim: both;
+text-edge: cap; */
+font-family: Philosopher;
+font-size: 44px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+p ul li {
+  color: var(--gray-gray-700, #333);
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+button {
+  display: flex;
+  height: 44px;
+  padding: 0px 28px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 6px;
+  background: var(--blue-primary-500, #0054A6);
+}
+
+button:hover {
+  background-color: #003b70;
+  border-color: #003b70;
+}

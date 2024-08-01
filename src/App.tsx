@@ -1,26 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Layout, Breadcrumb } from 'antd';
+import 'antd/dist/reset.css';
+import TrangChu from './pages/TrangChu/TrangChu'
+import {Title} from '../src/components/Title/Title';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout className="layout">
+      <TrangChu/>
+      {/* <Title name="Tai Lieu"/> */}
+    </Layout>
   );
-}
+};
 
 export default App;
