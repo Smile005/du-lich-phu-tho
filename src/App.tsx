@@ -1,16 +1,23 @@
 import React from 'react';
-import { Layout, Breadcrumb } from 'antd';
+import { Layout } from 'antd';
 import 'antd/dist/reset.css';
-import TrangChu from './pages/TrangChu/TrangChu'
-import {Title} from '../src/components/Title/Title';
+import TrangChu from './pages/TrangChu/TrangChu';
+import { BaiViet } from './pages/BaiViet/BaiViet';
+import Section02 from './pages/TrangChu/Section02';
 
-const App = () => {
-  return (
-    <Layout className="layout">
-      <TrangChu/>
-      {/* <Title name="Tai Lieu"/> */}
-    </Layout>
-  );
-};
+const App = () => (
+  <Layout className="layout">
+
+
+    {/* <Section02 /> */}
+    {/* <BaiViet /> */}
+
+    <TrangChu />
+    {/* <Card02 /> */}
+    {/* <CustomTag name="BÀI VIẾT"/> */}
+    {/* <CopyFilled /> */}
+    {/* image: '/img/img.png', */}
+  </Layout>
+);
 
 export default App;

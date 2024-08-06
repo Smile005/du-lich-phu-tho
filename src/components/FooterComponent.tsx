@@ -25,17 +25,60 @@ const FooterLink = styled.a`
   margin: 5px 0;
 `;
 
+const LogoContainer = styled.div`
+  width: 464px;
+  height: 93px;
+  flex-shrink: 0;
+`
+const LogoText = styled.div`
+
+`
+const CompanyName = styled.p`
+  color: var(--White, #FFF);
+  font-family: "Helvetica Neue";
+  font-size: 13.5px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+`
+const BrandName = styled.p`
+  color: #9FF;
+
+  font-family: "Helvetica Neue";
+  font-size: 35px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 1.4px;
+`
+const Div01 = styled.div`
+  display: flex;
+  width: 438px;
+  height: 210px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-shrink: 0;
+`
 const FooterComponent: React.FC = () => {
   return (
     <FooterContainer>
       <div className="container">
         <Row justify="space-around">
           <Col span={8}>
-            <img src="/Logo.svg" alt="PhuThoTourist Logo" style={{ width: '150px', marginBottom: '20px' }} />
-            <p>CÔNG TY CỔ PHẦN DỊCH VỤ VÀ DU LỊCH PHÚ THỌ</p>
-            <p>PHUTHOTOURIST</p>
+           <Div01>
+           <LogoContainer>
+              <img src="/Logo.svg" alt="PhuThoTourist Logo" style={{ width: '140px', marginBottom: '89px', flexShrink: '0' }} />
+              <LogoText>
+                <p>CÔNG TY CỔ PHẦN DỊCH VỤ VÀ DU LỊCH PHÚ THỌ</p>
+                <p>PHUTHOTOURIST</p>
+              </LogoText>
+            </LogoContainer>
+
             <FooterText>Copyright © Công ty Cổ phần Dịch vụ Du lịch Phú Thọ (Phuthotourist)</FooterText>
+           </Div01>
           </Col>
+
           <Col span={8}>
             <FooterTitle>LIÊN HỆ</FooterTitle>
             <FooterText>

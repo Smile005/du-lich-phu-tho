@@ -1,37 +1,44 @@
 import React from 'react';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
 import styled from 'styled-components';
 
 const { Header } = Layout;
 
 const HeaderWrapper = styled(Header)`
-  background-color: #2c3e50;
   display: flex;
+  width: 1920px;
+  height: 120px;
+  padding: 20px 519px 20px 531px;
   justify-content: center;
   align-items: center;
-  padding: 0;
+  gap: 80px;
+  flex-shrink: 0;
 `;
 
 const Logo = styled.img`
-  width: 50px;
-  height: 50px;
-  margin: 0 20px;
+  width: 72.192px;
+  height: 72.192px;
+  flex-shrink: 0;
 `;
 
-const NavMenu = styled(Menu)`
-  background-color: #2c3e50;
-  border-bottom: none;
-  color: white;
-  display: flex;
-  justify-content: center;
-  flex: 1;
+const StyledMenuItem = styled.p`
+  color: #FFF;
 
-  .ant-menu-item {
-    margin: 0 20px;
-    font-weight: bold;
+text-align: center;
+font-family: Philosopher;
+font-size: 20px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+text-transform: uppercase;
+
+  &:hover {
+    color: #1890ff !important;
   }
 
-  .ant-menu-item:hover {
+  &.ant-menu-item-selected {
+    color: #1890ff !important;
     border-bottom: 2px solid #1890ff;
   }
 `;
@@ -39,15 +46,14 @@ const NavMenu = styled(Menu)`
 const HeaderComponent: React.FC = () => {
   return (
     <HeaderWrapper>
-      <NavMenu mode="horizontal" defaultSelectedKeys={['1']}>
-        <Menu.Item key="1">TRANG CHỦ</Menu.Item>
-        <Menu.Item key="2">BÀI VIẾT</Menu.Item>
-        <Menu.Item key="logo" disabled>
+        <StyledMenuItem key="1">TRANG CHỦ</StyledMenuItem>
+        <StyledMenuItem key="2">BÀI VIẾT</StyledMenuItem>
+        <StyledMenuItem key="logo" >
           <Logo src="/Logo.svg" alt="Logo" />
-        </Menu.Item>
-        <Menu.Item key="3">TÀI LIỆU</Menu.Item>
-        <Menu.Item key="4">TUYỂN DỤNG</Menu.Item>
-      </NavMenu>
+        </StyledMenuItem>
+        <StyledMenuItem key="3">TÀI LIỆU</StyledMenuItem>
+        <StyledMenuItem key="4">TUYỂN DỤNG</StyledMenuItem>
+
     </HeaderWrapper>
   );
 };

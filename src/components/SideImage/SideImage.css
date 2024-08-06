@@ -1,0 +1,33 @@
+.image-component {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 619px;
+    height: 599px;
+    flex-shrink: 0;
+}
+
+.image-card {
+    width: 552px;
+    height: 340px;
+    flex-shrink: 0;
+}
+
+img[alt="Image 1"] {
+    width: 487px;
+    height: 311px;
+    flex-shrink: 0;
+}
+
+img[alt="Image 2"] {
+    width: 552px;
+    height: 340px;
+    flex-shrink: 0;
+}
+
+.image {
+    border-radius: 26.712px;
+    border: 5px solid #FFF;
+    background: lightgray 50% / cover no-repeat, #D9D9D9;
+    box-shadow: 0px 4px 21px 0px rgba(0, 0, 0, 0.25);
+}

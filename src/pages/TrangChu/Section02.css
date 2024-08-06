@@ -1,20 +1,23 @@
 .container {
+  width: 1520px;
+  height: 701px;
+  border: red;
+  background: rgba(255, 255, 255, 0.70);
+  backdrop-filter: blur(7.5px);
+}
+
+.custom-card {
   display: inline-flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: flex-start;
   gap: 32px;
 }
 
-.custom-card {
-  width: 100%;
-  max-width: 600px;
-  padding: 20px;
-}
-
 .content {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   align-items: flex-start;
+  gap: 32px;
 }
 
 h6 {
@@ -27,15 +30,26 @@ h6 {
   line-height: normal;
 }
 
-h2 {
+h1 {
   color: var(--blue-primary-600, #003F7D);
-/* leading-trim: both;
-text-edge: cap; */
-font-family: Philosopher;
-font-size: 44px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
+  leading-trim: both;
+  text-edge: cap;
+  font-family: Philosopher;
+  font-size: 44px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+h2 {
+  color: var(--gray-gray-600, #4D4D4D);
+  text-align: center;
+  /* Roboto/20px: Medium; */
+  font-family: Roboto;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
 }
 
 p ul li {
