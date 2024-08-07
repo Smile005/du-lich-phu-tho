@@ -1,111 +1,99 @@
 import React from 'react';
+import { Layout } from 'antd';
+import { EnvironmentOutlined, PhoneOutlined, MailOutlined, FacebookOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
-import { Layout, Row, Col } from 'antd';
-import { MailFilled, PhoneFilled, EnvironmentFilled, FacebookFilled } from '@ant-design/icons';
 
 const { Footer } = Layout;
 
-const FooterContainer = styled(Footer)`
-  background-color: #294360;
-  color: #ffffff;
-  padding: 40px 0;
+const StyledFooter = styled(Footer)`
+  background-color: #2d3e50;
+  color: white;
+  padding: 20px 50px;
+  text-align: left;
 `;
 
-const FooterTitle = styled.h3`
-  color: #ffffff;
+const FooterContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const FooterSection = styled.div`
+  flex: 1;
+  margin-right: 20px;
+`;
+
+const FooterLogo = styled.img`
+  width: 100px;
+  margin-bottom: 10px;
+`;
+
+const CompanyName = styled.p`
+  font-size: 1.2em;
+  font-weight: bold;
+`;
+
+const SectionTitle = styled.h3`
+  color: #8da6c1;
+  font-size: 1.1em;
+  margin-bottom: 10px;
 `;
 
 const FooterText = styled.p`
-  margin: 5px 0;
+  color: #c0c9d6;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
+
+  & i {
+    margin-right: 10px;
+  }
 `;
 
-const FooterLink = styled.a`
-  color: #ffffff;
-  display: block;
-  margin: 5px 0;
+const FooterList = styled.ul`
+  list-style: none;
+  padding: 0;
+  color: #c0c9d6;
 `;
 
-const LogoContainer = styled.div`
-  width: 464px;
-  height: 93px;
-  flex-shrink: 0;
-`
-const LogoText = styled.div`
+const FooterListItem = styled.li`
+  margin-bottom: 5px;
+`;
 
-`
-const CompanyName = styled.p`
-  color: var(--White, #FFF);
-  font-family: "Helvetica Neue";
-  font-size: 13.5px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-`
-const BrandName = styled.p`
-  color: #9FF;
+const CopyrightText = styled.p`
+  color: #8da6c1;
+  margin-top: 10px;
+`;
 
-  font-family: "Helvetica Neue";
-  font-size: 35px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-  letter-spacing: 1.4px;
-`
-const Div01 = styled.div`
-  display: flex;
-  width: 438px;
-  height: 210px;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  flex-shrink: 0;
-`
-const FooterComponent: React.FC = () => {
+const AppFooter: React.FC = () => {
   return (
-    <FooterContainer>
-      <div className="container">
-        <Row justify="space-around">
-          <Col span={8}>
-           <Div01>
-           <LogoContainer>
-              <img src="/Logo.svg" alt="PhuThoTourist Logo" style={{ width: '140px', marginBottom: '89px', flexShrink: '0' }} />
-              <LogoText>
-                <p>CÔNG TY CỔ PHẦN DỊCH VỤ VÀ DU LỊCH PHÚ THỌ</p>
-                <p>PHUTHOTOURIST</p>
-              </LogoText>
-            </LogoContainer>
-
-            <FooterText>Copyright © Công ty Cổ phần Dịch vụ Du lịch Phú Thọ (Phuthotourist)</FooterText>
-           </Div01>
-          </Col>
-
-          <Col span={8}>
-            <FooterTitle>LIÊN HỆ</FooterTitle>
-            <FooterText>
-              <EnvironmentFilled /> 15 đường số 2, Cư xá Lữ Gia, Phường 15, Quận 11, TP. HCM
-            </FooterText>
-            <FooterText>
-              <PhoneFilled style={{ rotate: '90deg' }} /> 02838650921
-            </FooterText>
-            <FooterText>
-              <MailFilled />vanphong@damsenpark.vn
-            </FooterText>
-            <FooterText>
-              <FacebookFilled /> Phuthotourist
-            </FooterText>
-          </Col>
-          <Col span={8}>
-            <FooterTitle>CÁC ĐƠN VỊ CÙNG HỆ THỐNG PHUTHOTOURIST</FooterTitle>
-            <FooterLink href="#">Công viên Văn hóa Đầm Sen</FooterLink>
-            <FooterLink href="#">Khu du lịch sinh thái Vàm Sát</FooterLink>
-            <FooterLink href="#">Khách sạn Ngọc Lan (Quận 1)</FooterLink>
-            <FooterLink href="#">Khách sạn Phú Thọ (Quận 11)</FooterLink>
-            <FooterLink href="#">Trung tâm Du lịch Đầm Sen</FooterLink>
-          </Col>
-        </Row>
-      </div>
-    </FooterContainer>
+    <StyledFooter>
+      <FooterContainer>
+        <FooterSection>
+          <FooterLogo src="/Logo.svg" alt="Logo" />
+          <CompanyName>CÔNG TY CỔ PHẦN DỊCH VỤ DU LỊCH PHÚ THỌ</CompanyName>
+          <CompanyName>PHUTHOTOURIST</CompanyName>
+          <CopyrightText>Copyright © Công ty Cổ phần Dịch vụ Du lịch Phú Thọ (Phuthotourist)</CopyrightText>
+        </FooterSection>
+        <FooterSection>
+          <SectionTitle>LIÊN HỆ</SectionTitle>
+          <FooterText><EnvironmentOutlined /> 15 Đường số 2, Cư xá Lữ Gia, Phường 15, Quận 11, TP. HCM</FooterText>
+          <FooterText><PhoneOutlined style={{rotate: "90reg"}}/> 02838650921</FooterText>
+          <FooterText><MailOutlined /> vanphong@damsenpark.vn</FooterText>
+          <FooterText><FacebookOutlined /> Phuthotourist</FooterText>
+        </FooterSection>
+        <FooterSection>
+          <SectionTitle>CÁC ĐƠN VỊ CÙNG HỆ THỐNG PHUTHOTOURIST</SectionTitle>
+          <FooterList>
+            <FooterListItem>Công viên Văn hóa Đầm Sen</FooterListItem>
+            <FooterListItem>Khu du lịch sinh thái Vàm Sát</FooterListItem>
+            <FooterListItem>Khách sạn Ngọc Lan (Quận 1)</FooterListItem>
+            <FooterListItem>Khách sạn Phú Thọ (Quận 11)</FooterListItem>
+            <FooterListItem>Trung tâm Du lịch Đầm Sen</FooterListItem>
+          </FooterList>
+        </FooterSection>
+      </FooterContainer>
+    </StyledFooter>
   );
 };
 
-export default FooterComponent;
+export default AppFooter;

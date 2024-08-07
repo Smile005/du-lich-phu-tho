@@ -1,20 +1,9 @@
 import React from 'react';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Layout, Menu } from 'antd';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const { Header } = Layout;
-
-const HeaderWrapper = styled(Header)`
-  display: flex;
-  width: 1920px;
-  height: 120px;
-  padding: 20px 519px 20px 531px;
-  justify-content: center;
-  align-items: center;
-  gap: 80px;
-  flex-shrink: 0;
-`;
 
 const Logo = styled.img`
   width: 72.192px;
@@ -22,40 +11,66 @@ const Logo = styled.img`
   flex-shrink: 0;
 `;
 
-const StyledMenuItem = styled.p`
-  color: #FFF;
+const StyledHeader = styled(Header)`
+  background-color: #1e3d6e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 
-text-align: center;
-font-family: Philosopher;
-font-size: 20px;
-font-style: normal;
-font-weight: 700;
-line-height: normal;
-text-transform: uppercase;
+const StyledMenu = styled(Menu)`
+  background-color: #1e3d6e;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 
-  &:hover {
-    color: #1890ff !important;
-  }
-
-  &.ant-menu-item-selected {
-    color: #1890ff !important;
-    border-bottom: 2px solid #1890ff;
+  .ant-menu-item {
+    color: white !important;
   }
 `;
+const StyledText = styled.p`
+  text-align: center;
+  font-family: Philosopher;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-transform: uppercase;
+`
 
 const HeaderComponent: React.FC = () => {
   return (
-    <HeaderWrapper>
-        <StyledMenuItem key="1">TRANG CHỦ</StyledMenuItem>
-        <StyledMenuItem key="2">BÀI VIẾT</StyledMenuItem>
-        <StyledMenuItem key="logo" >
-          <Logo src="/Logo.svg" alt="Logo" />
-        </StyledMenuItem>
-        <StyledMenuItem key="3">TÀI LIỆU</StyledMenuItem>
-        <StyledMenuItem key="4">TUYỂN DỤNG</StyledMenuItem>
-
-    </HeaderWrapper>
+    <StyledHeader>
+      <StyledMenu mode="horizontal" defaultSelectedKeys={['1']}>
+        <Menu.Item key="1">
+          <Link to="/">
+            <StyledText>TRANG CHỦ</StyledText>
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="2">
+          <Link to="/posts">
+            <StyledText>BÀI VIẾT</StyledText>
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="3">
+          <Logo src="/Logo.svg" />
+        </Menu.Item>
+        <Menu.Item key="4">
+          <Link to="/documents">
+            <StyledText>TÀI LIỆU</StyledText>
+          </Link>
+        </Menu.Item>
+        <Menu.Item key="5">
+          <Link to="/recruitment">
+            <StyledText>TUYỂN DỤNG</StyledText>
+          </Link>
+        </Menu.Item>
+      </StyledMenu>
+    </StyledHeader>
   );
 };
 
 export default HeaderComponent;
+

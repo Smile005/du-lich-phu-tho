@@ -1,7 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import HeaderComponent from '../../components/HeaderComponent';
-import FooterComponent from '../../components/FooterComponent';
 import { Section01 } from './Section01/Section01';
 import Section02 from './Section02';
 import { Section03 } from './Section03/Section03';
@@ -36,27 +34,23 @@ const posts = [
 ];
 
 const Container = styled.div`
-`
-const Background = styled.div``
-const Container01 = styled.div`
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     width: 1920px;
     height: 3629px;
     background: #FFF;
 `
+const Background = styled.div`
+    width: 1920px;
+    height: 1080px;
+    flex-shrink: 0;
+`
 
 const TrangChu: React.FC = () => {
     return (
-        <Container01>
-            <HeaderComponent />
-            <Section01 />
-            <Section02 />
-            <Section03 posts={posts} />
-            <Section04 />
-            <FooterComponent />
-        </Container01>
+        <Container>
+            <Background>
+
+            </Background>
+        </Container>
     );
 };
 
