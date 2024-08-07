@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import HeaderComponent from '../../components/HeaderComponent';
 import FooterComponent from '../../components/FooterComponent';
-import CustomTag from '../../components/CustomTag/CustomTag';
+import CustomTag from '../../CustomTag/CustomTag';
 
 const Container = styled.div`
     display: flex;

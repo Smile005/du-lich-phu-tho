@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+
 import { Section01 } from './Section01/Section01';
 import Section02 from './Section02';
 import { Section03 } from './Section03/Section03';
@@ -38,7 +39,7 @@ const Container = styled.div`
     height: 3629px;
     background: #FFF;
 `
-const Background = styled.div`
+const Content = styled.div`
     width: 1920px;
     height: 1080px;
     flex-shrink: 0;
@@ -46,10 +47,10 @@ const Background = styled.div`
 
 const TrangChu: React.FC = () => {
     return (
-        <Container>
-            <Background>
-
-            </Background>
+        <Container> 
+            <Content>
+                <Section02 />
+            </Content>
         </Container>
     );
 };

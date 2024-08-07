@@ -5,28 +5,28 @@ import 'antd/dist/reset.css';
 import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
 import TrangChu from './pages/TrangChu/TrangChu';
+import TuyenDung from './pages/TuyenDung';
+import TaiLieu from './pages/TaiLieu/TaiLieu';
 
 const { Content } = Layout;
 
 const App: React.FC = () => {
   return (
     <Router>
-      <Layout style={{ minHeight: '100vh' }}>
+      <Layout style={{ width: '1920px' }}>
         <HeaderComponent />
-        <Layout>
-          <Content style={{ margin: '24px 16px 0', overflow: 'initial' }}>
-            <div style={{ padding: 24, background: '#fff', textAlign: 'center' }}>
-              <Routes>
-                <Route path="/" element={<TrangChu />} />
-                <Route path="/posts" element={<h1>Bài Viết</h1>} />
-                <Route path="/" element={<h1>Trang Chủ</h1>} />
-                <Route path="/documents" element={<h1>Tài Liệu</h1>} />
-                <Route path="/recruitment" element={<h1>Tuyển Dụng</h1>} />
-              </Routes>
-            </div>
-          </Content>
-          <FooterComponent />
-        </Layout>
+        <Content>
+          <div style={{ background: '#fff', textAlign: 'center' }}>
+            <Routes>
+              <Route path="/" element={<TrangChu />} />
+              <Route path="/posts" element={<h1>Bài Viết</h1>} />
+              <Route path="/" element={<h1>Trang Chủ</h1>} />
+              <Route path="/documents" element={<TaiLieu />} />
+              <Route path="/recruitment" element={<TuyenDung />} />
+            </Routes>
+          </div>
+        </Content>
+        <FooterComponent />
       </Layout>
     </Router>
   );
