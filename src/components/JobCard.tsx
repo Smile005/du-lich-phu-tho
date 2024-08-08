@@ -1,4 +1,5 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Card, Avatar, Button, Tag } from 'antd';
 import { EnvironmentOutlined, ClockCircleOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
@@ -61,6 +62,12 @@ const CustomText = styled.p`
 `
 
 const JobCard: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleButtonClick = () => {
+    navigate('/chitiettuyendung');
+  };
+
   return (
     <JobCardContainer>
       <Meta
@@ -81,7 +88,7 @@ const JobCard: React.FC = () => {
         Mô tả công việc: Trung tâm dịch vụ du lịch Đầm Sen cần tuyển 2 Nhân viên kinh doanh lữ hành. Yêu cầu: Tốt nghiệp CĐ, ĐH chuyên ngành Du lịch, QT kinh doanh, Marketing. Am hiểu tâm lý ...
       </div>
       <Button className="job-button" type="primary" block style={{ marginTop: '10px' }}>
-        <CustomText>Xem chi tiết</CustomText>
+        <CustomText onClick={handleButtonClick}>Xem chi tiết</CustomText>
       </Button>
     </JobCardContainer>
   );

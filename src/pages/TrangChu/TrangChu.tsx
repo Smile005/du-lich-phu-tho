@@ -49,7 +49,10 @@ const TrangChu: React.FC = () => {
     return (
         <Container> 
             <Content>
+                <Section01 />
                 <Section02 />
+                <Section03 posts={posts}/>
+                <Section04/>
             </Content>
         </Container>
     );

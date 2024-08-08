@@ -5,8 +5,11 @@ import 'antd/dist/reset.css';
 import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
 import TrangChu from './pages/TrangChu/TrangChu';
+import ChiTietBaiViet from './pages/ChiTietBaiViet';
 import TuyenDung from './pages/TuyenDung';
-import TaiLieu from './pages/TaiLieu/TaiLieu';
+import TaiLieu from './pages/TaiLieu';
+import BaiViet from './pages/BaiViet';
+import ChiTietTuyenDung from './pages/ChiTietTuyenDung';
 
 const { Content } = Layout;
 
@@ -19,10 +22,11 @@ const App: React.FC = () => {
           <div style={{ background: '#fff', textAlign: 'center' }}>
             <Routes>
               <Route path="/" element={<TrangChu />} />
-              <Route path="/posts" element={<h1>Bài Viết</h1>} />
+              <Route path="/posts" element={<BaiViet />} />
               <Route path="/" element={<h1>Trang Chủ</h1>} />
               <Route path="/documents" element={<TaiLieu />} />
               <Route path="/recruitment" element={<TuyenDung />} />
+              <Route path="/chitiettuyendung" element={<ChiTietTuyenDung />} />
             </Routes>
           </div>
         </Content>
