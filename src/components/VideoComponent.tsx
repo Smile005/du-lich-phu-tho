@@ -1,13 +1,11 @@
 import React from 'react';
-import { Card } from 'antd';
 import styled from 'styled-components';
-// import 'antd/dist/antd.css';
 
 const Background = styled.div`
-    position: absolute;
-    width: 1920px;
-    height: 1080px;
-    flex-shrink: 0;
+  position: absolute
+  width: 1920px;
+  height: 1080px;
+  flex-shrink: 0;
 `
 const VideoComponent: React.FC = () => {
   return (

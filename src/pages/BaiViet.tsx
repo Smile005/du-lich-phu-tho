@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import VideoComponent from '../components/VideoComponent';
-import CustomTag from '../CustomTag/CustomTag';
+import CustomTag from '../components/CustomTag/CustomTag';
 
 const Container = styled.div`
     position: relative;

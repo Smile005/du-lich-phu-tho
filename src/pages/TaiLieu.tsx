@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import DocumentTable from '../components/DocumentTable';
 import VideoComponent from '../components/VideoComponent';
-import CustomTag from '../CustomTag/CustomTag';
+import CustomTag from '../components/CustomTag/CustomTag';
 import { FileTextOutlined } from '@ant-design/icons';
 
 const Container = styled.div`

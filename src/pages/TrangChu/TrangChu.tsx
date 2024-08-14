@@ -1,11 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-
-import { Section01 } from './Section01/Section01';
-import Section02 from './Section02';
-import { Section03 } from './Section03/Section03';
-import { Section04 } from './Section04/Section04';
-import './TrangChu.css';
+import VideoComponent from '../../components/VideoComponent';
+import Frame01A from './Frame01A'
+import Frame01B from './Frame01B';
+import Frame01C from './Frame01C';
 
 const posts = [
     {
@@ -33,26 +31,66 @@ const posts = [
         date: '20/02/2022',
     },
 ];
-
+const services = [
+    {
+        title: 'Vui chơi giải trí',
+        description: 'Với 2 khu giải trí nổi tiếng TPHCM là Công viên văn hóa Đầm Sen, và khu du lịch sinh thái Vàm Sát (H.Cần Giờ)...',
+        image: '/img/img.png',
+    },
+    {
+        title: 'Nhà hàng – Khách sạn',
+        description: 'Với hệ thống khách sạn Phú Thọ và Ngọc Lan đạt chuẩn 3 sao, chuyên tiếp đón các đoàn thể thao...',
+        image: '/img/img (1).png',
+    },
+    {
+        title: 'Dịch vụ Lữ hành',
+        description: 'Tổ chức các tour trong và ngoài nước với Trung tâm Dịch vụ du lịch Đầm Sen. Ngoài ra Trung tâm còn thể mạnh là tổ chức...',
+        image: '/img/img (2).png',
+    },
+];
 const Container = styled.div`
-    width: 1920px;
-    height: 3629px;
-    background: #FFF;
+position: relative
+width: 1920px;
+height: 3629px;
+background: #FFF;
 `
 const Content = styled.div`
-    width: 1920px;
-    height: 1080px;
-    flex-shrink: 0;
+position: absolute
+width: 1920px;
+height: 1080px;
+flex-shrink: 0;
+`
+const Frame01 = styled.div`
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+width: 1920px;
+height: 2549px;
+flex-shrink: 0;
+`
+const Frame02 = styled.div`
+display: inline-flex;
+height: 690px;
+flex-direction: column;
+align-items: center;
+gap: 42px;
+flex-shrink: 0;
 `
 
 const TrangChu: React.FC = () => {
     return (
         <Container> 
+            <VideoComponent />
             <Content>
-                <Section01 />
-                <Section02 />
-                <Section03 posts={posts}/>
-                <Section04/>
+                <Frame01>
+                    <Frame01A />
+                    <Frame01B posts={posts}/>
+                    <Frame01C services={services}/>
+                </Frame01>
+                <Frame02>
+                    
+                </Frame02>
             </Content>
         </Container>
     );

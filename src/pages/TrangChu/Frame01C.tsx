@@ -60,25 +60,17 @@ const StyledCard = styled(Card)`
     background: #FFF;
     box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.15);
 `;
-const services = [
-    {
-        title: 'Vui chơi giải trí',
-        description: 'Với 2 khu giải trí nổi tiếng TPHCM là Công viên văn hóa Đầm Sen, và khu du lịch sinh thái Vàm Sát (H.Cần Giờ)...',
-        image: '/img/img.png',
-    },
-    {
-        title: 'Nhà hàng – Khách sạn',
-        description: 'Với hệ thống khách sạn Phú Thọ và Ngọc Lan đạt chuẩn 3 sao, chuyên tiếp đón các đoàn thể thao...',
-        image: '/img/img (1).png',
-    },
-    {
-        title: 'Dịch vụ Lữ hành',
-        description: 'Tổ chức các tour trong và ngoài nước với Trung tâm Dịch vụ du lịch Đầm Sen. Ngoài ra Trung tâm còn thể mạnh là tổ chức...',
-        image: '/img/img (2).png',
-    },
-];
 
-export const Section04 = () => {
+type Service = {
+    title: string,
+    description: string,
+    image: string
+}
+
+type ServicesProps = {
+    services: Service[]
+}
+const Frame01C: React.FC<ServicesProps> = (props) => {
     return (
         <Container>
             <CustomTitle>
@@ -91,7 +83,7 @@ export const Section04 = () => {
             </CustomTitle>
 
             <Row gutter={[16, 16]} justify="center">
-                {services.map((services, index) => (
+                {props.services.map((services, index) => (
                     <Col xs={24} sm={12} md={8} key={index}>
                         <StyledCard
                             hoverable
@@ -104,4 +96,6 @@ export const Section04 = () => {
             </Row>
         </Container>
     )
-} 
+}
+
+export default Frame01C;
