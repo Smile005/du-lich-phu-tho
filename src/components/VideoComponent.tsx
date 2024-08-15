@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Background = styled.div`
-  position: absolute
+  position: absolute;
   width: 1920px;
   height: 1080px;
   flex-shrink: 0;

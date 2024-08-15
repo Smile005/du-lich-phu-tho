@@ -4,6 +4,7 @@ import VideoComponent from '../../components/VideoComponent';
 import Frame01A from './Frame01A'
 import Frame01B from './Frame01B';
 import Frame01C from './Frame01C';
+import Frame02A from './Frame02A';
 
 const posts = [
     {
@@ -49,13 +50,14 @@ const services = [
     },
 ];
 const Container = styled.div`
-position: relative
+position: relative;
 width: 1920px;
 height: 3629px;
 background: #FFF;
 `
 const Content = styled.div`
-position: absolute
+position: absolute;
+padding-top: 48px;
 width: 1920px;
 height: 1080px;
 flex-shrink: 0;
@@ -69,28 +71,34 @@ width: 1920px;
 height: 2549px;
 flex-shrink: 0;
 `
-const Frame02 = styled.div`
-display: inline-flex;
-height: 690px;
+const MidArrow = styled.div`
+display: flex;
+width: 32px;
+height: 32px;
+padding: 9px 16px;
 flex-direction: column;
+justify-content: center;
 align-items: center;
-gap: 42px;
+gap: 10px;
 flex-shrink: 0;
 `
-
 const TrangChu: React.FC = () => {
     return (
-        <Container> 
+        <Container>
             <VideoComponent />
             <Content>
+                <Frame02A />
+                <MidArrow>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="24" viewBox="0 0 26 24" fill="none">
+                        <path d="M24.5 12L13 22L1.5 12" stroke="#F0F0F0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        <path d="M24.5 2L13 12L1.5 2" stroke="#F0F0F0" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </MidArrow>
                 <Frame01>
                     <Frame01A />
-                    <Frame01B posts={posts}/>
-                    <Frame01C services={services}/>
-                </Frame01>
-                <Frame02>
-                    
-                </Frame02>
+                    <Frame01B posts={posts} />
+                    <Frame01C services={services} />
+                </Frame01>               
             </Content>
         </Container>
     );

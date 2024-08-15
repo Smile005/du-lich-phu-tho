@@ -6,10 +6,13 @@ import styled from 'styled-components';
 const { RangePicker } = DatePicker;
 
 const Container = styled.div`
-  padding: 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+width: 1234px;
+height: 807px;
+flex-shrink: 0;
+border-radius: 20px;
+background: rgba(255, 255, 255, 0.70);
+box-shadow: 0px 4px 30px 0px rgba(0, 0, 0, 0.20);
+backdrop-filter: blur(7.5px);
 `;
 
 const Header = styled.div`
@@ -25,6 +28,76 @@ const Title = styled.h3`
 const TableContainer = styled.div`
   margin-top: 20px;
 `;
+
+
+const NgayTao = styled.div`
+display: flex;
+align-items: flex-start;
+
+color: var(--blue-primary-500, #0054A6);
+/* Roboto/18px: Medium */
+font-family: Roboto;
+font-size: 18px;
+font-style: normal;
+font-weight: 600;
+line-height: normal;
+`
+
+const Paging = styled.div`
+display: inline-flex;
+flex-direction: row;
+justify-content: center;
+align-items: flex-start;
+gap: 8px;
+`
+const HienThi = styled.div`
+display: flex;
+align-items: center;
+gap: 8px;
+`
+const Paging01 = styled.div`
+display: flex;
+flex-direction: row;
+width: 275px;
+justify-content: space-between;
+align-items: center;
+flex-shrink: 0;
+`
+const PagingText = styled.div`
+color: var(--gray-gray-600, #4D4D4D);
+text-align: center;
+
+/* Roboto/16px: Regular */
+font-family: Roboto;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: 21px; /* 131.25% */
+`
+const Paging01a = styled.div`
+display: flex;
+width: 36px;
+height: 32px;
+padding: 3px 13px;
+justify-content: center;
+align-items: center;
+gap: 10px;
+border-radius: 4px;
+border: 1px solid var(--blue-primary-500, #0054A6);
+
+color: var(--blue-primary-500, #0054A6);
+text-align: center;
+/* Open Sans/16px/16px: Bold */
+font-family: "Open Sans";
+font-size: 16px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+`
+
+
+
+
 
 const columns = [
   {
@@ -128,7 +201,17 @@ const DocumentTable: React.FC = () => {
       </Header>
       <TableContainer>
         <Table columns={columns} dataSource={data} pagination={false} />
-        <Pagination defaultCurrent={1} total={50} pageSize={10} style={{ marginTop: '20px', textAlign: 'right' }} />
+
+
+        <Paging>
+          <HienThi>
+            <PagingText>Hiển thị </PagingText>
+            <Paging01a>10</Paging01a>
+            <PagingText>câu trả lời trong mỗi trang</PagingText>
+          </HienThi>
+          <Pagination defaultCurrent={1} total={50} pageSize={10} style={{ marginTop: '20px', textAlign: 'left' }} />
+        </Paging>
+        
       </TableContainer>
     </Container>
   );

@@ -2,20 +2,20 @@ import React from 'react';
 import styled from 'styled-components';
 import DocumentTable from '../components/DocumentTable';
 import VideoComponent from '../components/VideoComponent';
-import CustomTag from '../components/CustomTag/CustomTag';
+import CustomTag from '../components/CustomTag';
 import { FileTextOutlined } from '@ant-design/icons';
 
 const Container = styled.div`
-    position: relative;
-    width: 1920px;
-    height: 2289px;
-    background: #FFF;
+position: relative;
+width: 1920px;
+height: 2289px;
+background: #FFF;
 `
 const Frame01 = styled.div`
 position: absolute;
 display: flex;
 width: 1920px;
-padding-top: 168px;
+padding-top: 48px;
 flex-direction: column;
 justify-content: flex-end;
 align-items: center;
@@ -51,47 +51,35 @@ box-shadow: 0px 1.776px 7.102px 0px rgba(0, 0, 0, 0.25);
     background-position: center; 
 `
 
+const renderFrames01 = () => {
+    const frames = [];
+
+    for (let i = 0; i < 4; i++) {
+        frames.push(
+            <Frame04 key={i}>
+                <FileTextOutlined style={{ fontSize: '60px' }} />
+                <p style={{ color: 'white' }}>
+                    Báo cáo Tài Chính năm 2022-2023
+                </p>
+            </Frame04>
+        );
+    }
+
+    return frames;
+};
+
 const TaiLieu = () => {
     return (
         <Container>
             <VideoComponent />
             <Frame01>
                 <CustomTag name='TÀI LIỆU' />
-
                 <Frame02>
                     <Frame03>
-                        <Frame04>
-                            <FileTextOutlined style={{ fontSize: '60px'}}/>
-                            <p style={{color: 'white'}}>Báo cáo Tài Chính
-                            năm 2022-2023</p>
-                        </Frame04>
-                        <Frame04>
-                            <FileTextOutlined style={{ fontSize: '60px'}}/>
-                            <p style={{color: 'white'}}>Báo cáo Tài Chính
-                            năm 2022-2023</p>
-                        </Frame04>
-                        <Frame04>
-                            <FileTextOutlined style={{ fontSize: '60px'}}/>
-                            <p style={{color: 'white'}}>Báo cáo Tài Chính
-                            năm 2022-2023</p>
-                        </Frame04>
+                        {renderFrames01()}
                     </Frame03>
                     <Frame03>
-                        <Frame04>
-                            <FileTextOutlined style={{ fontSize: '60px'}}/>
-                            <p style={{color: 'white'}}>Báo cáo Tài Chính
-                            năm 2022-2023</p>
-                        </Frame04>
-                        <Frame04>
-                            <FileTextOutlined style={{ fontSize: '60px'}}/>
-                            <p style={{color: 'white'}}>Báo cáo Tài Chính
-                            năm 2022-2023</p>
-                        </Frame04>
-                        <Frame04>
-                            <FileTextOutlined style={{ fontSize: '60px'}}/>
-                            <p style={{color: 'white'}}>Báo cáo Tài Chính
-                            năm 2022-2023</p>
-                        </Frame04>
+                        {renderFrames01()}
                     </Frame03>
                 </Frame02>
                 <DocumentTable />

@@ -12,10 +12,12 @@ const Logo = styled.img`
 `;
 
 const StyledHeader = styled(Header)`
-  background-color: #1e3d6e;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+width: 1920px;
+height: 120px;
+background-color: #1e3d6e;
+display: flex;
+justify-content: center;
+align-items: center;
 `;
 
 const StyledMenu = styled(Menu)`

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import VideoComponent from '../components/VideoComponent';
-import CustomTag from '../components/CustomTag/CustomTag';
+import CustomTag from '../components/CustomTag';
 import JobCard from '../components/JobCard';
 import SearchSidebar from '../components/SearchSidebar';
 
