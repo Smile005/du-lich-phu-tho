@@ -1,0 +1,20 @@
+export type tuyendung = {
+        id: string;
+        MoTaSoLuoc?: string,
+        TinhTrang?: string,
+        Img?: string,
+        ViTriTuyenDung?: string,
+        ChucVu?: string,
+        SoLuong?: string,
+        NoiLamViec?: string,
+        DiaChiLamViec?: string,
+        MoTaCongViec?: string,
+        NgayLamViec?: string,
+        GioLamViec?: string,
+        QuyenLoi?: string,
+        YeuCau?: string,
+        DoTuoi?: string,
+        TrinhDo?: string,
+        HoSoGom?: string,
+        LienLac?: string,
+}

@@ -12,12 +12,12 @@ const Logo = styled.img`
 `;
 
 const StyledHeader = styled(Header)`
-width: 1920px;
-height: 120px;
-background-color: #1e3d6e;
-display: flex;
-justify-content: center;
-align-items: center;
+  width: 1920px;
+  height: 120px;
+  background-color: #1e3d6e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const StyledMenu = styled(Menu)`
@@ -32,6 +32,7 @@ const StyledMenu = styled(Menu)`
     color: white !important;
   }
 `;
+
 const StyledText = styled.p`
   text-align: center;
   font-family: Philosopher;
@@ -40,39 +41,53 @@ const StyledText = styled.p`
   font-weight: 700;
   line-height: normal;
   text-transform: uppercase;
-`
+`;
 
 const HeaderComponent: React.FC = () => {
+  const items = [
+    {
+      key: '1',
+      label: (
+        <Link to="/">
+          <StyledText>TRANG CHỦ</StyledText>
+        </Link>
+      ),
+    },
+    {
+      key: '2',
+      label: (
+        <Link to="/posts">
+          <StyledText>BÀI VIẾT</StyledText>
+        </Link>
+      ),
+    },
+    {
+      key: '3',
+      label: <Logo src="/Logo.svg" />,
+    },
+    {
+      key: '4',
+      label: (
+        <Link to="/documents">
+          <StyledText>TÀI LIỆU</StyledText>
+        </Link>
+      ),
+    },
+    {
+      key: '5',
+      label: (
+        <Link to="/recruitment">
+          <StyledText>TUYỂN DỤNG</StyledText>
+        </Link>
+      ),
+    },
+  ];
+
   return (
     <StyledHeader>
-      <StyledMenu mode="horizontal" defaultSelectedKeys={['1']}>
-        <Menu.Item key="1">
-          <Link to="/">
-            <StyledText>TRANG CHỦ</StyledText>
-          </Link>
-        </Menu.Item>
-        <Menu.Item key="2">
-          <Link to="/posts">
-            <StyledText>BÀI VIẾT</StyledText>
-          </Link>
-        </Menu.Item>
-        <Menu.Item key="3">
-          <Logo src="/Logo.svg" />
-        </Menu.Item>
-        <Menu.Item key="4">
-          <Link to="/documents">
-            <StyledText>TÀI LIỆU</StyledText>
-          </Link>
-        </Menu.Item>
-        <Menu.Item key="5">
-          <Link to="/recruitment">
-            <StyledText>TUYỂN DỤNG</StyledText>
-          </Link>
-        </Menu.Item>
-      </StyledMenu>
+      <StyledMenu mode="horizontal" defaultSelectedKeys={['1']} items={items} />
     </StyledHeader>
   );
 };
 
 export default HeaderComponent;
-

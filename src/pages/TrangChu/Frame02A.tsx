@@ -71,7 +71,6 @@ height: 352.553px;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-background: #FFF;
 flex-shrink: 0;
 `
 const Img02 = styled.div`
@@ -82,7 +81,6 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 flex-shrink: 0;
-background: #FFF;
 `
 const Img03 = styled.div`
 display: flex;
@@ -92,8 +90,7 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 flex-shrink: 0;
-background: #FFF;
-box-shadow: 0px 0px 27.816px 0px rgba(0, 0, 0, 0.50);
+// box-shadow: 0px 0px 27.816px 0px rgba(0, 0, 0, 0.50);
 `
 const Img04 = styled.div`
 display: flex;
@@ -103,7 +100,6 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 flex-shrink: 0;
-background: #FFF;
 `
 const Img05 = styled.div`
 display: flex;
@@ -112,7 +108,6 @@ height: 351.61px;
 flex-direction: column;
 justify-content: center;
 align-items: center;
-background: #FFF;
 flex-shrink: 0;
 `
 const Frame02A: React.FC = () => {
@@ -126,11 +121,11 @@ const Frame02A: React.FC = () => {
                 <Text03>Ngày thành lập 01/01/2019</Text03>
             </Frame01>
             <Frame03>
-                <Img01><img src="../../../public/img/Rectangle (1).png" alt="" /></Img01>
-                <Img02><img src="../../../public/img/Rectangle (1).png" alt="" style={{}} /></Img02>
-                <Img03><img src="../../../public/img/Rectangle (1).png" alt="" style={{}} /></Img03>
-                <Img04><img src="../../../public/img/Rectangle (1).png" alt="" style={{}} /></Img04>
-                <Img05><img src="../../../public/img/Rectangle (1).png" alt="" style={{}} /></Img05>
+                <Img01><img src="/img/image 1.png" alt="" style={{}} /></Img01>
+                <Img02><img src="/img/image 2.png" alt="" style={{}} /></Img02>
+                <Img03><img src="/img/image 3.png" alt="" style={{}} /></Img03>
+                <Img04><img src="/img/image 4.png" alt="" style={{}} /></Img04>
+                <Img05><img src="/img/image 5.png" alt="" style={{}} /></Img05>
             </Frame03>
         </Container>
     )

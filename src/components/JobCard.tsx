@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Card, Avatar, Button, Tag } from 'antd';
 import { EnvironmentOutlined, ClockCircleOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
+import { tuyendung } from '../type/tuyendung';
 // import 'antd/dist/antd.css'; // Đảm bảo bạn đã cài đặt Ant Design
 
 const { Meta } = Card;
@@ -60,20 +61,22 @@ const CustomText = styled.p`
     font-weight: 600;
     line-height: normal;
 `
-
-const JobCard: React.FC = () => {
+type DataProps = {
+  details: tuyendung
+}
+const JobCard: React.FC<DataProps> = ({details}) => {
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    navigate('/chitiettuyendung');
+    navigate('/chitiettuyendung/${index}');
   };
 
   return (
     <JobCardContainer>
       <Meta
         avatar={<Avatar src="/path/to/avatar-image.jpg" />}
-        title="Nhân viên thiết kế đồ họa"
-        description={<Tag color="red">Nhân viên chính thức</Tag>}
+        title={details.ViTriTuyenDung}
+        description={<Tag color="red">{details.ChucVu}</Tag>}
       />
       <div style={{ display: 'flex', alignItems: 'center', marginTop: '10px' }}>
         <EnvironmentOutlined style={{ marginRight: '8px' }} />
@@ -82,10 +85,10 @@ const JobCard: React.FC = () => {
       <div style={{ display: 'flex', alignItems: 'center', marginTop: '4px' }}>
         <ClockCircleOutlined style={{ marginRight: '8px' }} />
         <span>2 tuần trước</span>
-        <Tag className="job-status">Đã hết hạn</Tag>
+        <Tag className="job-status">{details.TinhTrang}</Tag>
       </div>
       <div className="job-details" style={{ marginTop: '10px' }}>
-        Mô tả công việc: Trung tâm dịch vụ du lịch Đầm Sen cần tuyển 2 Nhân viên kinh doanh lữ hành. Yêu cầu: Tốt nghiệp CĐ, ĐH chuyên ngành Du lịch, QT kinh doanh, Marketing. Am hiểu tâm lý ...
+        {details.MoTaSoLuoc}
       </div>
       <Button className="job-button" type="primary" block style={{ marginTop: '10px' }}>
         <CustomText onClick={handleButtonClick}>Xem chi tiết</CustomText>

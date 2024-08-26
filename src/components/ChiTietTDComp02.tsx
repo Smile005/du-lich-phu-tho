@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { ReactComponent as Icon } from '../assets/icons/DamSem.svg'
+import { tuyendung } from '../type/tuyendung';
 
 const Container = styled.div`
 display: inline-flex;
@@ -81,28 +82,8 @@ font-style: normal;
 font-weight: 600;
 line-height: normal;
 `
-type ChiTietProps = {
-    MoTaSoLuoc?: string,
-    TinhTrang?: string,
-    Img?: string;
-    ViTri?: string,
-    SoLuong?: string,
-    NoiLamViec?: string,
-    DiaChiLamViec?: string,
-    MoTaCongViec?: string[],
-    NgayLamViec?: string,
-    GioLamViec?: string,
-    QuyenLoi?: string[],
-    YeuCau?: string[],
-    DoTuoi?: string,
-    TrinhDo?: string,
-    HoSoGom?: string[],
-    LienLac?: string
-}
-type TuyenDungProps = {
-    ChiTiet?: ChiTietProps,
-}
-const ChiTietTDComp02: React.FC<TuyenDungProps> = (props) => {
+
+const ChiTietTDComp02: React.FC<tuyendung> = (props) => {
     return (
         <Container>
             <CustomLogo>

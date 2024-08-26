@@ -1,43 +1,50 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { db } from './firebaseConfig';
-import { addDoc, collection, getDocs } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Layout } from 'antd';
+import { Provider, useDispatch } from 'react-redux';
 import 'antd/dist/reset.css';
 import HeaderComponent from './components/HeaderComponent';
 import FooterComponent from './components/FooterComponent';
 import TrangChu from './pages/TrangChu/TrangChu';
 import TuyenDung from './pages/TuyenDung';
 import TaiLieu from './pages/TaiLieu';
-import BaiViet from './pages/BaiViet';
-import ChiTietTuyenDung from './pages/ChiTietTuyenDung';
+import BaiViet from './pages/BaiViet/BaiViet';
+import ChiTietTuyenDung from './pages/ChiTietTuyenDung/ChiTietTuyenDung';
+import ChiTietBaiViet from './pages/ChiTietBaiViet';
+import { store } from './redux/store';
+import { setNews } from './redux/slices/newsSlice';
+import { setData } from './redux/slices/dataSlice';
+import { tuyendung } from './type/tuyendung';
+import { setTuyendungData } from './redux/slices/tuyendungSlice';
 
 const { Content } = Layout;
 
 const App: React.FC = () => {
-  const [news, setNews] = useState<any[]>([]);
-  const [data, setData] = useState<any[]>([]);
-  const [image, setImages] = useState<any[]>([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const fetchData = async () => {
       const querySnapshot1 = await getDocs(collection(db, "data"));
       const docs = querySnapshot1.docs.map(doc => doc.data());
-      setData(docs);
+      dispatch(setData(docs));
+
+      const data = querySnapshot1.docs.map(doc => ({
+        id: doc.id,  // Gán id từ DocumentSnapshot vào object dữ liệu
+        ...doc.data() // Lấy tất cả các field khác từ document
+    })) as tuyendung[];
+
+      dispatch(setTuyendungData(data));
 
       const querySnapshot2 = await getDocs(collection(db, "news"));
       const news = querySnapshot2.docs.map(doc => doc.data());
-      setNews(news);
-
-      // const querySnapshot = await getDocs(collection(db, "images"));
-      // const imagesList = querySnapshot.docs.map(doc => doc.data());
-      // setImages(imagesList);
+      dispatch(setNews(news));
     };
 
     fetchData();
-  }, []);
+  }, [dispatch]);
 
- 
   return (
     <Router>
       <Layout style={{ width: '1920px' }}>
@@ -46,11 +53,12 @@ const App: React.FC = () => {
           <div style={{ background: '#fff', textAlign: 'center' }}>
             <Routes>
               <Route path="/" element={<TrangChu />} />
-              <Route path="/posts" element={<BaiViet news={news}/>} />
+              <Route path="/posts" element={<BaiViet />} />
               <Route path="/" element={<h1>Trang Chủ</h1>} />
               <Route path="/documents" element={<TaiLieu />} />
               <Route path="/recruitment" element={<TuyenDung />} />
-              {/* <Route path="/chitiettuyendung" element={<ChiTietTuyenDung MoTa={MoTa}/>} /> */}
+              <Route path="/chitiettuyendung/:index" element={<ChiTietTuyenDung />} />
+              <Route path="/chitietbaiviet/:index" element={<ChiTietBaiViet />} />
             </Routes>
           </div>
         </Content>
@@ -60,4 +68,10 @@ const App: React.FC = () => {
   );
 };
 
-export default App;
+const ReduxApp = () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);
+
+export default ReduxApp;

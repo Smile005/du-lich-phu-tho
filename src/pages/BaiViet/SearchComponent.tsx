@@ -1,14 +1,27 @@
 import React from 'react';
 import { Input, DatePicker, Select, Space } from 'antd';
 import { SearchOutlined, CalendarOutlined, SortAscendingOutlined } from '@ant-design/icons';
-import moment from 'moment';
+import styled from 'styled-components';
 
 const { RangePicker } = DatePicker;
 const { Option } = Select;
 
+const Container = styled.div`
+right: 0px;
+display: flex;
+justify-content: center;
+width: 1134px;
+height: 80px;
+flex-shrink: 0;
+border-radius: 12px;
+background: rgba(255, 255, 255, 0.70);
+box-shadow: 0px 2px 20px 0px rgba(0, 0, 0, 0.10);
+backdrop-filter: blur(7.5px);
+`
+
 const SearchComponent: React.FC = () => {
   return (
-    <div style={styles.container}>
+    <Container>
       <Space size="middle">
         <Input
           placeholder="Tìm kiếm"
@@ -30,7 +43,7 @@ const SearchComponent: React.FC = () => {
           </Option>
         </Select>
       </Space>
-    </div>
+    </Container>
   );
 };
 
