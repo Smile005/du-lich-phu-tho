@@ -69,16 +69,16 @@ const StyledCard = styled(Card)`
 `
 const CustomButton = styled(Button)`
 display: inline-flex;
+top: 32px;
 height: 44px;
 padding: 0px 28px;
 justify-content: center;
 align-items: center;
 gap: 10px;
 flex-shrink: 0;
+
 border-radius: 6px;
 background: var(--blue-primary-500, #0054A6);
-
-color: #FFF;
 
 /* Roboto/18px: Medium */
 font-family: Roboto;
@@ -86,6 +86,7 @@ font-size: 18px;
 font-style: normal;
 font-weight: 600;
 line-height: normal;
+color: white;
 `
 type Post = {
     title: string

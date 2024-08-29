@@ -4,31 +4,30 @@ import { Card, Avatar, Button, Tag } from 'antd';
 import { EnvironmentOutlined, ClockCircleOutlined } from '@ant-design/icons';
 import styled from 'styled-components';
 import { tuyendung } from '../type/tuyendung';
+import { ReactComponent as Logo } from '../assets/icons/logo.svg';
 // import 'antd/dist/antd.css'; // Đảm bảo bạn đã cài đặt Ant Design
 
 const { Meta } = Card;
 
 const JobCardContainer = styled(Card)`
   width: 361px;
-    height: 296px;
-    flex-shrink: 0;
-    border-radius: 12px;
-    background: #FFF;
+  height: 296px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: #FFF;
   .ant-card-meta-title {
     color: var(--blue-primary-600, #003F7D);
-    leading-trim: both;
-    text-edge: cap;
     font-family: Roboto;
     font-size: 20px;
     font-style: normal;
     font-weight: 700;
-    line-height: 20px; /* 100% */
+    line-height: 20px;
   }
   .ant-card-meta-description {
     color: #666;
   }
   .ant-avatar {
-  width: 36px;
+    width: 36px;
     height: 36px;
     fill: #9FD18B;
     stroke-width: 4px;
@@ -54,27 +53,29 @@ const JobCardContainer = styled(Card)`
   }
 `;
 const CustomText = styled.p`
-    color: #FFF;
-    font-family: Roboto;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: normal;
-`
+  color: #FFF;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+`;
+
 type DataProps = {
-  details: tuyendung
-}
-const JobCard: React.FC<DataProps> = ({details}) => {
+  details: tuyendung;
+};
+
+const JobCard: React.FC<DataProps> = ({ details }) => {
   const navigate = useNavigate();
 
   const handleButtonClick = () => {
-    navigate('/chitiettuyendung/${index}');
+    navigate(`/chitiettuyendung/${details.id}`); // Sửa đường dẫn để sử dụng details.id
   };
 
   return (
     <JobCardContainer>
       <Meta
-        avatar={<Avatar src="/path/to/avatar-image.jpg" />}
+        avatar={<Avatar><Logo /></Avatar>}
         title={details.ViTriTuyenDung}
         description={<Tag color="red">{details.ChucVu}</Tag>}
       />
@@ -90,8 +91,8 @@ const JobCard: React.FC<DataProps> = ({details}) => {
       <div className="job-details" style={{ marginTop: '10px' }}>
         {details.MoTaSoLuoc}
       </div>
-      <Button className="job-button" type="primary" block style={{ marginTop: '10px' }}>
-        <CustomText onClick={handleButtonClick}>Xem chi tiết</CustomText>
+      <Button className="job-button" type="primary" block style={{ marginTop: '10px' }} onClick={handleButtonClick}>
+        <CustomText>Xem chi tiết</CustomText>
       </Button>
     </JobCardContainer>
   );

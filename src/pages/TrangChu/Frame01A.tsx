@@ -3,6 +3,8 @@ import { Button } from 'antd';
 import styled from 'styled-components';
 
 const Container = styled.div`
+display: inline-flex;
+flex-direction: row;
 width: 1520px;
 height: 701px;
 background: rgba(255, 255, 255, 0.70);
@@ -11,6 +13,7 @@ backdrop-filter: blur(7.5px);
 const Frame01 = styled.div`
 display: inline-flex;
 flex-direction: column;
+width:700px;
 align-items: flex-start;
 gap: 32px;
 `
@@ -99,27 +102,31 @@ line-height: normal;
 text-align: left;
 `
 const Frame02 = styled.div`
+position: relative;
+display: flex;
+flex-direction: row;
 width: 619px;
 height: 599px;
 flex-shrink: 0;
 `
 const Img01 = styled.div`
+position: absolute;
+top: 46px;
 width: 487px;
 height: 311px;
 flex-shrink: 0;
 border-radius: 26.712px;
-border: 5px solid #FFF;
-background: url('../../../public/Frame01a.png') lightgray 50% / cover no-repeat;
-box-shadow: 0px 4px 21px 0px rgba(0, 0, 0, 0.25);
+background: url('/Frame01a.png') 50% / cover no-repeat;
 `
 const Img02 = styled.div`
+position: absolute;
+top: 259px;
+left: 67px;
 width: 552px;
 height: 340px;
 flex-shrink: 0;
 border-radius: 26.712px;
-border: 5px solid #FFF;
-background: url('../../../public/Frame01b.png') lightgray 50% / cover no-repeat, #D9D9D9;
-box-shadow: 0px 4px 21px 0px rgba(0, 0, 0, 0.25);
+background: url('/Frame01b.png') 50% / cover no-repeat;
 `
 const Frame01A: React.FC = () => {
   return (
@@ -155,8 +162,8 @@ const Frame01A: React.FC = () => {
         <Button01a>Xem chi tiết</Button01a>
       </Frame01>
       <Frame02>
-        {/* <Img01 />
-        <Img02 /> */}
+        <Img01 />
+        <Img02 />
       </Frame02>
     </Container>
   );

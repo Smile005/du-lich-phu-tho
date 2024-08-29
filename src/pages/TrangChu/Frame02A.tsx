@@ -72,6 +72,7 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 flex-shrink: 0;
+background: lightgray -98.091px -56.114px / 199.513% 131.833% no-repeat;
 `
 const Img02 = styled.div`
 display: flex;
@@ -90,7 +91,6 @@ flex-direction: column;
 justify-content: center;
 align-items: center;
 flex-shrink: 0;
-// box-shadow: 0px 0px 27.816px 0px rgba(0, 0, 0, 0.50);
 `
 const Img04 = styled.div`
 display: flex;
@@ -121,11 +121,11 @@ const Frame02A: React.FC = () => {
                 <Text03>Ngày thành lập 01/01/2019</Text03>
             </Frame01>
             <Frame03>
-                <Img01><img src="/img/image 1.png" alt="" style={{}} /></Img01>
-                <Img02><img src="/img/image 2.png" alt="" style={{}} /></Img02>
-                <Img03><img src="/img/image 3.png" alt="" style={{}} /></Img03>
-                <Img04><img src="/img/image 4.png" alt="" style={{}} /></Img04>
-                <Img05><img src="/img/image 5.png" alt="" style={{}} /></Img05>
+                <Img01><img src="/img/image 1.png" alt="" /></Img01>
+                <Img02><img src="/img/image 2.png" alt="" /></Img02>
+                <Img03><img src="/img/image 3.png" alt="" /></Img03>
+                <Img04><img src="/img/image 4.png" alt="" /></Img04>
+                <Img05><img src="/img/image 5.png" alt="" /></Img05>
             </Frame03>
         </Container>
     )

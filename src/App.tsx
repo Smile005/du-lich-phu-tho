@@ -18,6 +18,7 @@ import { setNews } from './redux/slices/newsSlice';
 import { setData } from './redux/slices/dataSlice';
 import { tuyendung } from './type/tuyendung';
 import { setTuyendungData } from './redux/slices/tuyendungSlice';
+import { News } from './type/news';
 
 const { Content } = Layout;
 
@@ -26,19 +27,23 @@ const App: React.FC = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const querySnapshot1 = await getDocs(collection(db, "data"));
-      const docs = querySnapshot1.docs.map(doc => doc.data());
-      dispatch(setData(docs));
+      // const docs = querySnapshot1.docs.map(doc => doc.data());
+      // dispatch(setData(docs));
 
+      const querySnapshot1 = await getDocs(collection(db, "data"));
       const data = querySnapshot1.docs.map(doc => ({
         id: doc.id,  // Gán id từ DocumentSnapshot vào object dữ liệu
         ...doc.data() // Lấy tất cả các field khác từ document
-    })) as tuyendung[];
-
+      })) as tuyendung[];
+      console.log(data)
       dispatch(setTuyendungData(data));
 
       const querySnapshot2 = await getDocs(collection(db, "news"));
-      const news = querySnapshot2.docs.map(doc => doc.data());
+      const news = querySnapshot2.docs.map(doc => ({
+        id: doc.id, // Thêm ID của tài liệu vào đối tượng
+        ...doc.data() // Thêm dữ liệu tài liệu
+      })) as News[];
+  
       dispatch(setNews(news));
     };
 
@@ -52,13 +57,18 @@ const App: React.FC = () => {
         <Content>
           <div style={{ background: '#fff', textAlign: 'center' }}>
             <Routes>
-              <Route path="/" element={<TrangChu />} />
-              <Route path="/posts" element={<BaiViet />} />
-              <Route path="/" element={<h1>Trang Chủ</h1>} />
-              <Route path="/documents" element={<TaiLieu />} />
-              <Route path="/recruitment" element={<TuyenDung />} />
+              {/* Định nghĩa các tuyến cụ thể trước */}
               <Route path="/chitiettuyendung/:index" element={<ChiTietTuyenDung />} />
               <Route path="/chitietbaiviet/:index" element={<ChiTietBaiViet />} />
+
+              {/* Các tuyến chung hơn */}
+              <Route path="/posts" element={<BaiViet />} />
+              <Route path="/documents" element={<TaiLieu />} />
+              <Route path="/recruitment" element={<TuyenDung />} />
+
+              {/* Đặt tuyến chung nhất cuối cùng */}
+              <Route path="/" element={<TrangChu />} />
+              {/* Hoặc có thể chỉ định một tuyến mặc định nếu cần */}
             </Routes>
           </div>
         </Content>

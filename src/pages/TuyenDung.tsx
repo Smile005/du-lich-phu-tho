@@ -10,7 +10,7 @@ import { RootState } from '../redux/store';
 const Container = styled.div`
   position: relative;
   width: 1920px;
-  height: 1686px;
+  height: 1186px;
 `;
 
 const Frame01 = styled.div`

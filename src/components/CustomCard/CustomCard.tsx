@@ -1,19 +1,31 @@
 import React from 'react';
 import { Card, Tag } from 'antd';
 import { Link } from 'react-router-dom';
-import './CustomCard.css'; // Đảm bảo tạo file CSS riêng để định dạng
-import { News } from '../../type/news';
 import styled from 'styled-components';
+import { News } from '../../type/news';
 
 const { Meta } = Card;
+
 const StyledCard = styled(Card)`
-  display: flex;
-  width: 265px;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 301px;
   height: 292px;
-  padding-bottom: 10px;
-  flex-direction: column;
-  gap: 12px;
   flex-shrink: 0;
+
+  img {
+    border-radius: 10px 10px 0 0;
+  }
+`;
+
+const StyledTag = styled(Tag)`
+   margin-bottom: 8px;
+  transition: color 0.3s, background-color 0.3s; // Smooth transition
+
+  &:hover {
+    color: red; // Text color on hover
+    background-color: transparent; // Background color on hover (optional)
+  }
 `;
 
 interface CustomCardProps {
@@ -22,29 +34,25 @@ interface CustomCardProps {
 
 const CustomCard: React.FC<CustomCardProps> = ({ data }) => {
   return (
-    // <Link to={`/chitietbaiviet/${data.id}`} style={{ textDecoration: 'none' }}>
+    <Link to={`/chitietbaiviet/${data.id}`} style={{ textDecoration: 'none' }}>
       <StyledCard
         hoverable
-        className="custom-card"
         cover={<img alt={data.title} src={data.image || '/img/img (1).png'} />}
       >
-        <Meta title={data.author || "Admin"} className="custom-meta" />
-        <div className="custom-content">
-          <p className="custom-title">{data.title}</p>
-          <div className="custom-tags">
+        <Meta title={data.author || "Admin"} />
+        <div>
+          <p>{data.title}</p>
+          <div>
             {data.tags?.map((tag, index) => (
-              <Tag key={index} style={{ color: tag === "Sự kiện" ? 'red' : undefined }}>
+              <StyledTag key={index} >
                 {tag}
-              </Tag>
+              </StyledTag>
             ))}
           </div>
-          <div className="custom-footer">
-            <span className="custom-views">{data.views || "0 lượt xem"}</span>
-            <span className="custom-date">{data.date || "N/A"}</span>
-          </div>
+          <div>{data.date}</div>
         </div>
       </StyledCard>
-    // </Link>
+    </Link>
   );
 };
 

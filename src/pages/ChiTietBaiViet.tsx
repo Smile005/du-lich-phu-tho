@@ -7,7 +7,6 @@ import { Card, Row, Col, Tag } from 'antd';
 import VideoComponent from '../components/VideoComponent';
 import { News } from '../type/news';
 
-
 const { Meta } = Card;
 
 const Container = styled.div`
@@ -113,12 +112,14 @@ const StyledRow = styled(Row)`
 `;
 
 const ChiTietBaiViet: React.FC = () => {
-    const { index } = useParams<{ index: string }>();
     const news = useSelector((state: RootState) => state.news.news);
+    const { index } = useParams<{ index: string }>();
+    
+    // Use the index directly as a string
     const baiViet = news.find(item => item.id === index);
-  
+    
     if (!baiViet) {
-      return <div>Bài viết không tồn tại.</div>;
+        return <div>Bài viết không tồn tại.</div>;
     }
 
     return (
@@ -129,11 +130,11 @@ const ChiTietBaiViet: React.FC = () => {
                     <Frame03>
                         {baiViet.title}
                         <StyledText03>
-                            by tuyendung in on Tháng Năm 21, 2020
+                            by {baiViet.author || "Admin"} on {baiViet.date || "N/A"}
                         </StyledText03>
                     </Frame03>
                     <Frame04>
-                        <img src="/DuLichDamSen.png" alt="" />
+                        <img src={baiViet.image || '/default.png'} alt="" />
                         <StyledText04>
                             {baiViet.news}
                         </StyledText04>
@@ -165,8 +166,8 @@ const ChiTietBaiViet: React.FC = () => {
                 </Frame02>
             </Frame01>
         </Container>
-    )
-}
+    );
+};
 
 export default ChiTietBaiViet;
 

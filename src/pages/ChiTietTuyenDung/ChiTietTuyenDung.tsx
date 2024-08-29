@@ -18,10 +18,10 @@ const Container = styled.div`
 `;
 
 const ChiTietTuyenDung: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
+  const { index } = useParams<{ index: string }>();
   const data = useSelector((state: RootState) => state.tuyendung.data);
 
-  const recruitmentDetail = data.find(item => item.id === id);
+  const recruitmentDetail = data.find(item => item.id === index);
 
   if (!recruitmentDetail) {
     return <div>Không tìm thấy thông tin tuyển dụng!</div>;
